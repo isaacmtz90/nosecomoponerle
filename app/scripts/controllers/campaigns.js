@@ -10,7 +10,8 @@
 angular.module('quetesobraApp')
 	.controller('CampaignsCtrl', ['$scope', 'campaign', '$routeParams', function($scope, campaignService, $routeParams) {
 		var response;
-		if ($routeParams.category !== '' && $routeParams.category !== null) {
+		console.log($routeParams.category);
+		if ($routeParams.category !== undefined && $routeParams.category !== null) {
 			response = campaignService.getByCategory($routeParams.category);
 			response.success(function(data) {
 				console.log(data.error);
