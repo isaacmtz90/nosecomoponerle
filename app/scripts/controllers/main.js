@@ -9,7 +9,7 @@
  */
 angular.module('quetesobraApp')
 	.controller('MainCtrl', ['$scope', 'campaign', 'category', function($scope, campaignService, categoryService){
-
+		
 		var response = campaignService.getAll();
 		response.success(function(data) {
 			if (data.documents.length > 0) {

@@ -1,0 +1,52 @@
+application: angelhack-sps
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+skip_files:
+- ^node_modules/(.*/)/node_modules?
+- ^(.*/)?app\.yaml
+- ^(.*/)?app\.yml
+- ^(.*/)?#.*#
+- ^(.*/)?.*~
+- ^(.*/)?.*\.py[co]
+- ^(.*/)?.*/RCS/.*
+- ^(.*/)?\..*
+- ^(.*/)?tests$
+- ^(.*/)?test$
+- ^test/(.*/)?
+- ^COPYING.LESSER
+- ^README\..*
+- \.gitignore
+- ^\.git/.*
+- \.*\.lint$
+- ^fabfile\.py
+- ^testrunner\.py
+- ^grunt\.js
+- ^(.*/)?.*/node_modules/*/.*
+
+handlers:
+- url: /
+  static_files: dist/index.html
+  upload: dist/index.html
+
+- url: /scripts
+  static_dir: dist/scripts
+
+- url: /styles
+  static_dir: dist/styles
+
+- url: /fonts
+  static_dir: dist/fonts
+
+- url: /images
+  static_dir: dist/images
+
+- url: /views
+  static_dir: dist/views
+
+
+libraries:
+- name: webapp2
+  version: "2.5.2"

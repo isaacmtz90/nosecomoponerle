@@ -7,14 +7,14 @@
  * # campaign
  * Service in the quetesobraApp.
  */
-var baseurl = 'https://api-us.clusterpoint.com/100713/CampaignManager/_search';
+var cbaseurl = 'https://api-us.clusterpoint.com/100713/CampaignManager/';
 angular.module('quetesobraApp')
 	.service('campaign', ['$http', function campaign($http) {
 
 		function getAll() {
 			var request = $http({
 				method: 'POST',
-				url: baseurl,
+				url: cbaseurl + '_search',
 				data: {
 					'query': '<Category>Campaign</Category>'
 				}
@@ -25,7 +25,7 @@ angular.module('quetesobraApp')
 		function getById(id) {
 			var request = $http({
 				method: 'POST',
-				url: baseurl,
+				url: cbaseurl +'_search',
 				data: {
 					'query': '<id>' + id + '</id>'
 				}
@@ -37,9 +37,30 @@ angular.module('quetesobraApp')
 		function getByCategory(category) {
 			var request = $http({
 				method: 'POST',
-				url: baseurl,
+				url: cbaseurl +'_search',
 				data: {
 					'query': '<item>' + category + '</item>'
+				}
+			});
+			return request;
+		}
+
+		function create(name, item, org, dateInit, dateEnd, user, desc, img) {
+			var request = $http({
+				method: 'POST',
+				url: cbaseurl,
+				data: {
+					'id': Math.floor((Math.random() * 100) + 1),
+					'Category': 'Campaign',
+					'Campaignname': name,
+					'item': item,
+					'Organization': org,
+					'dateStart': dateInit,
+					'dateEnd': dateEnd,
+					'paypalAccount': 'guifarro.lozano@gmail.com',
+					'user': user,
+					'campaignDescription': desc,
+					'campaignProfile' : img
 				}
 			});
 			return request;
@@ -50,7 +71,8 @@ angular.module('quetesobraApp')
 		return {
 			getAll: getAll,
 			getById: getById,
-			getByCategory: getByCategory
+			getByCategory: getByCategory,
+			create: create
 		};
 
 

@@ -1,1 +1,40 @@
-<p>This is the campaign/create view.</p>
+<h4>Crear Campaña: </h4>
+<div class="form-group">
+  <label for="usr">Nombre de la Campaña:</label>
+  <input type="text" class="form-control" id="usr" ng-model= "name">
+</div>
+<div class="form-group">
+  <label for="org">Organizacion:</label>
+  <input type="text" class="form-control" id="org" ng-model= "organization">
+</div>
+
+<div class="form-group">
+  <label for="user">Organizador:</label>
+  <input type="text" class="form-control" id="user" ng-model= "user">
+</div>
+<div class="form-group">
+  <label for="pwd">Descripcion:</label>
+  <textarea class="form-control" rows="5" id="desc" ng-model="description"></textarea>
+</div>
+<label for="select">Tipo de Donacion:</label>
+<select id = "selec" ng-model="item" >
+  <option value="Ropa">Ropa</option>
+  <option value="Juguetes">Juguetes</option>
+  <option value="Viveres">Viveres</option>
+  <option value="Otro">Otro</option>
+</select>
+<div class="form-group">
+  <label for="img">Foto de la Campaña:</label>
+  <input type="text" class="form-control" id="img" ng-model= "img">
+</div>
+ <div class="form-group">
+  <label for="f-ini">Fecha de Incio:</label>
+  <input type="date" class="form-control" id="f-ini" ng-model= "fechainit">
+</div>
+
+<div class="form-group">
+  <label for="f-final">Fecha de Fin:</label>
+  <input type="date" class="form-control" id="f-final" ng-model= "fechafin">
+</div>
+
+ <button type="button" class="btn btn-default" ng-click ="create()">Create</button>
