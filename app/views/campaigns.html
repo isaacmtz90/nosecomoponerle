@@ -4,26 +4,58 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1 class="page-header">Todas las Campañas
+                    <small ng-if ="subcat">{{subcat}}</small>
                 </h1>
             </div>
         </div>
         <!-- /.row -->
 
         <!-- Projects Row -->
-        <div class="row">
-        	<div ng-if="$index % 3 == 0" class="clearfix"></div>
-            <div class="col-md-4 portfolio-item" ng-repeat= "c in campaigns">
-                <a href="#/campaign/{{c.id}}">
-                    <img class="img-responsive" src="{{c.campaignProfile}}" alt="">
+        <div class="row" ng-repeat= "c in campaigns"  ng-if="$index % 3 == 0">
+        	
+            <div ng-if = "campaigns[$index]"  class="col-md-4 portfolio-item">
+                 
+                <a href="#/campaign/{{campaigns[$index].id}}">
+                    <img class="img-responsive" src="{{campaigns[$index].campaignProfile}}" alt="">
                 </a>
                 <h3>
-                    <a href="#/campaign/{{c.id}}">{{c.Campaignname}}</a>
+                    <a href="#/campaign/{{campaigns[$index].id}}">{{campaigns[$index].Campaignname}}</a>
                 </h3>
-                <p>{{c.campaignDescription}}</p>
-                 <p><b>Organización: </b>{{c.Organization}}</p>
-                 <p><b>Organizador: </b>{{c.user}}</p>
-                 <p><b>Donación de: </b>{{c.item}}</p>
+                <p>{{campaigns[$index].campaignDescription}}</p>
+                 <p><b>Organización: </b>{{campaigns[$index].Organization}}</p>
+                 <p><b>Organizador: </b>{{campaigns[$index].user}}</p>
+                 <p><b>Donación de: </b>{{campaigns[$index].item}}</p>
+
             </div>
+                
+            <div ng-if = "campaigns[$index+1]" class="col-md-4 portfolio-item">
+                 
+                <a href="#/campaign/{{campaigns[$index+1].id}}">
+                    <img class="img-responsive" src="{{campaigns[$index+1].campaignProfile}}" alt="">
+                </a>
+                <h3>
+                    <a href="#/campaign/{{campaigns[$index+1].id}}">{{campaigns[$index+1].Campaignname}}</a>
+                </h3>
+                <p>{{campaigns[$index+1].campaignDescription}}</p>
+                 <p><b>Organización: </b>{{campaigns[$index+1].Organization}}</p>
+                 <p><b>Organizador: </b>{{campaigns[$index+1].user}}</p>
+                 <p><b>Donación de: </b>{{campaigns[$index+1].item}}</p>
+
+            </div>  
+             <div ng-if = "campaigns[$index+2]" class="col-md-4 portfolio-item">
+                 
+                <a href="#/campaign/{{campaigns[$index+2].id}}">
+                    <img class="img-responsive" src="{{campaigns[$index+2].campaignProfile}}" alt="">
+                </a>
+                <h3>
+                    <a href="#/campaign/{{campaigns[$index+2].id}}">{{campaigns[$index+2].Campaignname}}</a>
+                </h3>
+                <p>{{campaigns[$index+2].campaignDescription}}</p>
+                 <p><b>Organización: </b>{{campaigns[$index+2].Organization}}</p>
+                 <p><b>Organizador: </b>{{campaigns[$index+2].user}}</p>
+                 <p><b>Donación de: </b>{{campaigns[$index+2].item}}</p>
+
+            </div> 
            
         </div>
         <!-- /.row -->

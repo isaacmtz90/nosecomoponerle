@@ -1,7 +1,10 @@
 <div class="row">
 
             <div class="col-md-3">
-                <p class="lead">Categorias:</p>
+              <div class="row">
+              <img src="images/logo2.png" width="100%" height="100%" alt="">
+            </div>
+                <p class="lead">Categorías:</p>
                 <div class="list-group">
                     <a ng-repeat ="cat in categories"href="#/campaigns/{{cat.categoryName}}" class="list-group-item">{{cat.categoryName}}</a>
                   
@@ -30,32 +33,75 @@
                                     <img class="slide-image" src="images/3.png" alt="">
                                 </div>
                             </div>
-                            <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
+                            
                         </div>
                     </div>
 
                 </div>
 
-                <div class="row">
+                <div class="row"  ng-repeat="c in campaigns"  ng-if="$index % 3 == 0">
 
-                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="c in campaigns">
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-if = "campaigns[$index]">
                         <div class="thumbnail">
-                            <img src="{{c.campaignProfile}}" alt="">
+                            <img src="{{campaigns[$index].campaignProfile}}" alt="">
                             <div class="caption">
                                
-                                <h4><a href="#/campaign/{{c.id}}">{{c.Campaignname}}</a>
+                                <h4><a href="#/campaign/{{campaigns[$index].id}}">{{campaigns[$index].Campaignname}}</a>
                                 </h4>
                                 <p>
                                   
-                                   {{c.campaignDescription}}</p>
+                                   {{campaigns[$index].campaignDescription}}</p>
                             </div>
                             <div class="ratings">
-                                <p class="pull-right">{{c.Organization}}</p>
+                                <p class="pull-right">{{campaigns[$index].Organization}}</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-if = "campaigns[$index+1]">
+                        <div class="thumbnail">
+                            <img src="{{campaigns[$index+1].campaignProfile}}" alt="">
+                            <div class="caption">
+                               
+                                <h4><a href="#/campaign/{{campaigns[$index+1].id}}">{{campaigns[$index+1].Campaignname}}</a>
+                                </h4>
+                                <p>
+                                  
+                                   {{campaigns[$index+1].campaignDescription}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{campaigns[$index+1].Organization}}</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star-empty"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-if = "campaigns[$index+2]">
+                        <div class="thumbnail">
+                            <img src="{{campaigns[$index+2].campaignProfile}}" alt="">
+                            <div class="caption">
+                               
+                                <h4><a href="#/campaign/{{campaigns[$index+2].id}}">{{campaigns[$index+2].Campaignname}}</a>
+                                </h4>
+                                <p>
+                                  
+                                   {{campaigns[$index+2].campaignDescription}}</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">{{campaigns[$index+2].Organization}}</p>
                                 <p>
                                     <span class="glyphicon glyphicon-star"></span>
                                     <span class="glyphicon glyphicon-star"></span>

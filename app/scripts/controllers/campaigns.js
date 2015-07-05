@@ -13,6 +13,7 @@ angular.module('quetesobraApp')
 		console.log($routeParams.category);
 		if ($routeParams.category !== undefined && $routeParams.category !== null) {
 			response = campaignService.getByCategory($routeParams.category);
+			$scope.subcat= $routeParams.category;
 			response.success(function(data) {
 				console.log(data.error);
 				if (data.documents.length > 0) {
