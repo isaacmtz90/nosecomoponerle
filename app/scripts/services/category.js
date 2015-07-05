@@ -23,7 +23,7 @@ angular.module('quetesobraApp')
 		}
 
 		return {
-			getAll: getAll,
+			getAll: getAll
 
 		};
 		// AngularJS will instantiate a singleton by calling "new" on this function

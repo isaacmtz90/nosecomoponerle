@@ -14,7 +14,7 @@ angular.module('quetesobraApp')
 		function getAll() {
 			var request = $http({
 				method: 'POST',
-				url: baseurl ,
+				url: baseurl,
 				data: {
 					'query': '<Category>Campaign</Category>'
 				}
@@ -25,7 +25,7 @@ angular.module('quetesobraApp')
 		function getById(id) {
 			var request = $http({
 				method: 'POST',
-				url: baseurl ,
+				url: baseurl,
 				data: {
 					'query': '<id>' + id + '</id>'
 				}
@@ -33,9 +33,24 @@ angular.module('quetesobraApp')
 			return request;
 		}
 
+
+		function getByCategory(category) {
+			var request = $http({
+				method: 'POST',
+				url: baseurl,
+				data: {
+					'query': '<item>' + category + '</item>'
+				}
+			});
+			return request;
+		}
+
+
+
 		return {
 			getAll: getAll,
-			getById: getById
+			getById: getById,
+			getByCategory: getByCategory
 		};
 
 
